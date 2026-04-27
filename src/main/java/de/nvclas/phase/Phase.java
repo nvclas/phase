@@ -3,6 +3,7 @@ package de.nvclas.phase;
 import com.mojang.logging.LogUtils;
 import de.nvclas.phase.generators.AssetsGenerator;
 import de.nvclas.phase.generators.DataGenerator;
+import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
 import de.nvclas.phase.registries.PhaseItems;
 import net.neoforged.bus.api.IEventBus;
@@ -19,6 +20,8 @@ public class Phase {
     public Phase(IEventBus modEventBus, ModContainer modContainer) {
         // Content
         PhaseItems.ITEMS.register(modEventBus);
+        PhaseBlocks.BLOCKS.register(modEventBus);
+        PhaseCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
         // Liseners
         modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);

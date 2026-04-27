@@ -12,6 +12,13 @@ public class PhaseEnLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        // Items
         add("item.phase.unstable_phase", "Unstable Phase");
+
+        // Blocks
+        add("block.phase.fractured_stone", "Fractured Stone");
+
+        // Creative Tab
+        add("itemGroup.phase", "Phase");
     }
 }

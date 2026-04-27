@@ -1,24 +1,31 @@
 package de.nvclas.phase.registries;
 
+import de.nvclas.phase.Phase;
 import lombok.experimental.UtilityClass;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 @UtilityClass
 public class PhaseCreativeTabs {
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(
+            Registries.CREATIVE_MODE_TAB, Phase.MODID);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> PHASE = CREATIVE_MODE_TABS.register("phase",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup." + Phase.MODID))
+                    .icon(() -> new ItemStack(PhaseItems.UNSTABLE_PHASE.get()))
+                    .build());
+
 
     public static void addToCreativeTabs(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            insertAfter(net.minecraft.world.item.Items.RAW_COPPER, PhaseItems.UNSTABLE_PHASE, event);
+        if (event.getTab() == PHASE.get()) {
+            event.accept(PhaseItems.UNSTABLE_PHASE.get());
+            event.accept(PhaseBlocks.FRACTURED_STONE.get());
         }
-    }
-
-    private static void insertAfter(Item after, DeferredItem<Item> item, BuildCreativeModeTabContentsEvent event) {
-        event.insertAfter(new ItemStack(after), item.toStack(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 
 }
