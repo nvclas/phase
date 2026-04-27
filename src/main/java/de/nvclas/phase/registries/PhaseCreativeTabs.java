@@ -25,6 +25,7 @@ public class PhaseCreativeTabs {
         if (event.getTab() == PHASE.get()) {
             event.accept(PhaseItems.UNSTABLE_PHASE.get());
             event.accept(PhaseBlocks.FRACTURED_STONE.get());
+            event.accept(PhaseBlocks.PULSING_GRASS.get());
         }
     }
 

@@ -1,5 +1,6 @@
 {
   "block.phase.fractured_stone": "Fractured Stone",
+  "block.phase.pulsing_grass": "Pulsing Grass",
   "item.phase.unstable_phase": "Unstable Phase",
   "itemGroup.phase": "Phase"
 }

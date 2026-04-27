@@ -17,6 +17,7 @@ public class PhaseEnLanguageProvider extends LanguageProvider {
 
         // Blocks
         add("block.phase.fractured_stone", "Fractured Stone");
+        add("block.phase.pulsing_grass", "Pulsing Grass");
 
         // Creative Tab
         add("itemGroup.phase", "Phase");

@@ -7,6 +7,9 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class PhaseBlockStateProvider extends BlockStateProvider {
+
+    private static final String BLOCK_PATH = "block/";
+
     public PhaseBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, Phase.MODID, exFileHelper);
     }
@@ -14,5 +17,14 @@ public class PhaseBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlockWithItem(PhaseBlocks.FRACTURED_STONE.get(), cubeAll(PhaseBlocks.FRACTURED_STONE.get()));
+        simpleBlockWithItem(PhaseBlocks.PULSING_GRASS.get(),
+                models().cubeBottomTop(
+                        PhaseBlocks.PULSING_GRASS.getId().getPath(),
+                        modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_side"),
+                        modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_bottom"),
+                        modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_top")
+                )
+        );
+
     }
 }

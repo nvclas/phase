@@ -15,7 +15,10 @@ public class PhaseBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Phase.MODID);
 
     public static final DeferredBlock<Block> FRACTURED_STONE = register("fractured_stone",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
+
+    public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
 
     private static <T extends Block> DeferredBlock<T> register(String name, Supplier<T> properties) {
         DeferredBlock<T> block = BLOCKS.register(name, properties);
