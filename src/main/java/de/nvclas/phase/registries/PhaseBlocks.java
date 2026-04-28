@@ -22,7 +22,7 @@ public class PhaseBlocks {
                     .sound(PhaseSounds.FRACTURED_STONE)
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops()
-                    .strength(25.0F, 500.0F)));
+                    .strength(8.0F, 500.0F)));
 
     public static final DeferredBlock<Block> COBBLED_FRACTURED_STONE = register("cobbled_fractured_stone",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -30,7 +30,7 @@ public class PhaseBlocks {
                     .sound(PhaseSounds.FRACTURED_STONE)
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops()
-                    .strength(25.0F, 500.0F)));
+                    .strength(10.0F, 500.0F)));
 
     public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass", () -> new GrassBlock(
             BlockBehaviour.Properties.of()
@@ -46,7 +46,7 @@ public class PhaseBlocks {
                     .sound(PhaseSounds.PULSING_DIRT)
                     .randomTicks()
                     .requiresCorrectToolForDrops()
-                    .strength(1.2F)));
+                    .strength(1.0F)));
 
     private static <T extends Block> DeferredBlock<T> register(String name, Supplier<T> properties) {
         DeferredBlock<T> block = BLOCKS.register(name, properties);
