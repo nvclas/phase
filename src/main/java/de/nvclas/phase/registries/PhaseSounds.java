@@ -21,4 +21,9 @@ public class PhaseSounds {
             () -> SoundEvents.GRASS_BREAK, () -> SoundEvents.GRASS_STEP, () -> SoundEvents.GRASS_PLACE,
             () -> SoundEvents.GRASS_HIT, () -> SoundEvents.GRASS_FALL);
 
+    public static final DeferredSoundType PULSING_DIRT = new DeferredSoundType(1.0f, 0.8f,
+            () -> SoundEvents.GRAVEL_BREAK, () -> SoundEvents.GRAVEL_STEP, () -> SoundEvents.GRAVEL_PLACE,
+            () -> SoundEvents.GRAVEL_HIT, () -> SoundEvents.GRAVEL_FALL);
+
+
 }

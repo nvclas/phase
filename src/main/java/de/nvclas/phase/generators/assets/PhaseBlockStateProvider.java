@@ -17,14 +17,17 @@ public class PhaseBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlockWithItem(PhaseBlocks.FRACTURED_STONE.get(), cubeAll(PhaseBlocks.FRACTURED_STONE.get()));
+        simpleBlockWithItem(PhaseBlocks.COBBLED_FRACTURED_STONE.get(),
+                cubeAll(PhaseBlocks.COBBLED_FRACTURED_STONE.get()));
         simpleBlockWithItem(PhaseBlocks.PULSING_GRASS.get(),
                 models().cubeBottomTop(
                         PhaseBlocks.PULSING_GRASS.getId().getPath(),
                         modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_side"),
-                        modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_bottom"),
+                        modLoc(BLOCK_PATH + PhaseBlocks.PULSING_DIRT.getId().getPath()),
                         modLoc(BLOCK_PATH + PhaseBlocks.PULSING_GRASS.getId().getPath() + "_top")
                 )
         );
+        simpleBlockWithItem(PhaseBlocks.PULSING_DIRT.get(), cubeAll(PhaseBlocks.PULSING_DIRT.get()));
 
     }
 }

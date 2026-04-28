@@ -1,8 +1,8 @@
 package de.nvclas.phase;
 
 import com.mojang.logging.LogUtils;
-import de.nvclas.phase.generators.AssetsGenerator;
-import de.nvclas.phase.generators.DataGenerator;
+import de.nvclas.phase.generators.PhaseAssetsGenerator;
+import de.nvclas.phase.generators.PhaseDataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
 import de.nvclas.phase.registries.PhaseItems;
@@ -31,8 +31,8 @@ public class Phase {
     }
 
     private void generateData(GatherDataEvent event) {
-        new AssetsGenerator().generate(event);
-        new DataGenerator().generate(event);
+        new PhaseAssetsGenerator().generate(event);
+        new PhaseDataGenerator().generate(event);
     }
 
 }

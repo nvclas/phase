@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "phase:block/pulsing_grass_bottom",
+    "bottom": "phase:block/pulsing_dirt",
     "side": "phase:block/pulsing_grass_side",
     "top": "phase:block/pulsing_grass_top"
   }

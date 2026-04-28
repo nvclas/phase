@@ -8,15 +8,16 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-public class AssetsGenerator {
+public class PhaseAssetsGenerator {
 
     public void generate(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        boolean includeClient = event.includeClient();
 
-        generator.addProvider(true, new PhaseEnLanguageProvider(packOutput));
-        generator.addProvider(true, new PhaseItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(true, new PhaseBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(includeClient, new PhaseEnLanguageProvider(packOutput));
+        generator.addProvider(includeClient, new PhaseItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(includeClient, new PhaseBlockStateProvider(packOutput, existingFileHelper));
     }
 }
