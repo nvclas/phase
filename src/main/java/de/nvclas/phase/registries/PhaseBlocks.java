@@ -25,19 +25,19 @@ public class PhaseBlocks {
                     .strength(25.0F, 500.0F)));
 
     public static final DeferredBlock<Block> COBBLED_FRACTURED_STONE = register("cobbled_fractured_stone",
-            () -> new Block(
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.DEEPSLATE)
-                            .sound(PhaseSounds.FRACTURED_STONE)
-                            .instrument(NoteBlockInstrument.BASEDRUM)
-                            .requiresCorrectToolForDrops()
-                            .strength(25.0F, 500.0F)));
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.DEEPSLATE)
+                    .sound(PhaseSounds.FRACTURED_STONE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .strength(25.0F, 500.0F)));
 
     public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass", () -> new GrassBlock(
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLUE)
                     .sound(PhaseSounds.PULSING_GRASS)
                     .randomTicks()
+                    .requiresCorrectToolForDrops()
                     .strength(1.2F)));
 
     public static final DeferredBlock<Block> PULSING_DIRT = register("pulsing_dirt", () -> new Block(
@@ -45,6 +45,7 @@ public class PhaseBlocks {
                     .mapColor(MapColor.COLOR_BROWN)
                     .sound(PhaseSounds.PULSING_DIRT)
                     .randomTicks()
+                    .requiresCorrectToolForDrops()
                     .strength(1.2F)));
 
     private static <T extends Block> DeferredBlock<T> register(String name, Supplier<T> properties) {
