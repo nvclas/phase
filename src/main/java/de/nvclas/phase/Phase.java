@@ -6,6 +6,7 @@ import de.nvclas.phase.generators.DataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
 import de.nvclas.phase.registries.PhaseItems;
+import de.nvclas.phase.registries.PhaseSounds;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -21,6 +22,7 @@ public class Phase {
         // Content
         PhaseItems.ITEMS.register(modEventBus);
         PhaseBlocks.BLOCKS.register(modEventBus);
+        PhaseSounds.SOUND_EVENTS.register(modEventBus);
         PhaseCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
         // Liseners
