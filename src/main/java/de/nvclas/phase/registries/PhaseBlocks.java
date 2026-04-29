@@ -1,6 +1,7 @@
 package de.nvclas.phase.registries;
 
 import de.nvclas.phase.Phase;
+import de.nvclas.phase.blocks.PulsingGrassBlock;
 import lombok.experimental.UtilityClass;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrassBlock;
@@ -32,7 +33,7 @@ public class PhaseBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(10.0F, 500.0F)));
 
-    public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass", () -> new GrassBlock(
+    public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass", () -> new PulsingGrassBlock(
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLUE)
                     .sound(PhaseSounds.PULSING_GRASS)
@@ -42,7 +43,7 @@ public class PhaseBlocks {
 
     public static final DeferredBlock<Block> PULSING_DIRT = register("pulsing_dirt", () -> new Block(
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BROWN)
+                    .mapColor(MapColor.COLOR_GRAY)
                     .sound(PhaseSounds.PULSING_DIRT)
                     .randomTicks()
                     .requiresCorrectToolForDrops()

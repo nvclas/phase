@@ -7,6 +7,13 @@
       {
         "model": "phase:block/fractured_stone",
         "y": 180
+      },
+      {
+        "model": "phase:block/fractured_stone_mirrored"
+      },
+      {
+        "model": "phase:block/fractured_stone_mirrored",
+        "y": 180
       }
     ]
   }

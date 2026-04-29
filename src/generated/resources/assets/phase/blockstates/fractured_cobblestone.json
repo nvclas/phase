@@ -1,13 +1,7 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "phase:block/fractured_cobblestone"
-      },
-      {
-        "model": "phase:block/fractured_cobblestone",
-        "y": 180
-      }
-    ]
+    "": {
+      "model": "phase:block/fractured_cobblestone"
+    }
   }
 }
