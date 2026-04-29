@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "phase:block/pulsing_dirt"
-    }
+    "": [
+      {
+        "model": "phase:block/pulsing_dirt"
+      },
+      {
+        "model": "phase:block/pulsing_dirt",
+        "y": 90
+      },
+      {
+        "model": "phase:block/pulsing_dirt",
+        "y": 180
+      },
+      {
+        "model": "phase:block/pulsing_dirt",
+        "y": 270
+      }
+    ]
   }
 }

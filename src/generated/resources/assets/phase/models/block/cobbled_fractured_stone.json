@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "phase:block/cobbled_fractured_stone"
+    "all": "phase:block/fractured_cobblestone"
   }
 }

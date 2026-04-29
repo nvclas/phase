@@ -17,8 +17,8 @@ public class PhaseBlockLootSubProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         add(PhaseBlocks.FRACTURED_STONE.get(),
-                block -> createSingleItemTableWithSilkTouch(block, PhaseBlocks.COBBLED_FRACTURED_STONE.get()));
-        dropSelf(PhaseBlocks.COBBLED_FRACTURED_STONE.get());
+                block -> createSingleItemTableWithSilkTouch(block, PhaseBlocks.FRACTURED_COBBLESTONE.get()));
+        dropSelf(PhaseBlocks.FRACTURED_COBBLESTONE.get());
         add(PhaseBlocks.PULSING_GRASS.get(),
                 block -> createSingleItemTableWithSilkTouch(block, PhaseBlocks.PULSING_DIRT.get()));
         dropSelf(PhaseBlocks.PULSING_DIRT.get());

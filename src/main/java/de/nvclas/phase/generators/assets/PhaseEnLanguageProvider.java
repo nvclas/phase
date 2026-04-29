@@ -17,7 +17,7 @@ public class PhaseEnLanguageProvider extends LanguageProvider {
 
         // Blocks
         add("block.phase.fractured_stone", "Fractured Stone");
-        add("block.phase.cobbled_fractured_stone", "Cobbled Fractured Stone");
+        add("block.phase.fractured_cobblestone", "Fractured Cobblestone");
         add("block.phase.pulsing_grass", "Pulsing Grass");
         add("block.phase.pulsing_dirt", "Pulsing Dirt");
 

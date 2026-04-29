@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "phase:block/pulsing_grass"
-    }
+    "": [
+      {
+        "model": "phase:block/pulsing_grass"
+      },
+      {
+        "model": "phase:block/pulsing_grass",
+        "y": 90
+      },
+      {
+        "model": "phase:block/pulsing_grass",
+        "y": 180
+      },
+      {
+        "model": "phase:block/pulsing_grass",
+        "y": 270
+      }
+    ]
   }
 }

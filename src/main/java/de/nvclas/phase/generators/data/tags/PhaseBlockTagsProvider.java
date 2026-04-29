@@ -23,12 +23,12 @@ public class PhaseBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // Best tool
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(PhaseBlocks.FRACTURED_STONE.get(),
-                PhaseBlocks.COBBLED_FRACTURED_STONE.get());
+                PhaseBlocks.FRACTURED_COBBLESTONE.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PhaseBlocks.PULSING_GRASS.get(), PhaseBlocks.PULSING_DIRT.get());
 
         // Needed tool level
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(PhaseBlocks.FRACTURED_STONE.get(), PhaseBlocks.PULSING_GRASS.get(),
-                PhaseBlocks.PULSING_DIRT.get(), PhaseBlocks.COBBLED_FRACTURED_STONE.get());
+                PhaseBlocks.PULSING_DIRT.get(), PhaseBlocks.FRACTURED_COBBLESTONE.get());
     }
 
 

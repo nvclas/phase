@@ -24,7 +24,7 @@ public class PhaseBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(8.0F, 500.0F)));
 
-    public static final DeferredBlock<Block> COBBLED_FRACTURED_STONE = register("cobbled_fractured_stone",
+    public static final DeferredBlock<Block> FRACTURED_COBBLESTONE = register("fractured_cobblestone",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .sound(PhaseSounds.FRACTURED_STONE)

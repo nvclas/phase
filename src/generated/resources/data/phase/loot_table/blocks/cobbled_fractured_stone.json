@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "phase:cobbled_fractured_stone"
+          "name": "phase:fractured_cobblestone"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "phase:blocks/cobbled_fractured_stone"
+  "random_sequence": "phase:blocks/fractured_cobblestone"
 }
