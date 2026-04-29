@@ -1,8 +1,8 @@
 {
-  "item.phase.unstable_phase": "Instabiles Phase",
-  "block.phase.fractured_cobblestone": "Fractured Cobblestone",
-  "block.phase.fractured_stone": "Fractured Stone",
-  "block.phase.pulsing_dirt": "Pulsing Dirt",
-  "block.phase.pulsing_grass": "Pulsing Grass",
+  "item.phase.unstable_phase": "Instabile Phase",
+  "block.phase.fractured_cobblestone": "Fragmentierter Bruchstein",
+  "block.phase.fractured_stone": "Fragmentierter Stein",
+  "block.phase.pulsing_dirt": "Pulsierende Erde",
+  "block.phase.pulsing_grass": "Pulsierendes Gras",
   "itemGroup.phase": "Phase"
 }
