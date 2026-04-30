@@ -1,8 +1,8 @@
 package de.nvclas.phase;
 
 import com.mojang.logging.LogUtils;
-import de.nvclas.phase.generators.PhaseAssetsGenerator;
-import de.nvclas.phase.generators.PhaseDataGenerator;
+import de.nvclas.phase.datagen.PhaseAssetsGenerator;
+import de.nvclas.phase.datagen.PhaseDataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
 import de.nvclas.phase.registries.PhaseItems;

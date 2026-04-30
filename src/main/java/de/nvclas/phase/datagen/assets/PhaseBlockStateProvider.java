@@ -1,4 +1,4 @@
-package de.nvclas.phase.generators.assets;
+package de.nvclas.phase.datagen.assets;
 
 import de.nvclas.phase.Phase;
 import de.nvclas.phase.registries.PhaseBlocks;

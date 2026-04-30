@@ -1,4 +1,4 @@
-package de.nvclas.phase.generators.data.tags;
+package de.nvclas.phase.datagen.data.tags;
 
 import de.nvclas.phase.Phase;
 import de.nvclas.phase.registries.PhaseBlocks;

@@ -1,7 +1,7 @@
-package de.nvclas.phase.generators;
+package de.nvclas.phase.datagen;
 
-import de.nvclas.phase.generators.data.loot.PhaseLootTableProvider;
-import de.nvclas.phase.generators.data.tags.PhaseBlockTagsProvider;
+import de.nvclas.phase.datagen.data.loot.PhaseLootTableProvider;
+import de.nvclas.phase.datagen.data.tags.PhaseBlockTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

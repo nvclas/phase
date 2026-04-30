@@ -1,4 +1,4 @@
-package de.nvclas.phase.generators.data.loot.subprovider;
+package de.nvclas.phase.datagen.data.loot.subprovider;
 
 import de.nvclas.phase.registries.PhaseBlocks;
 import net.minecraft.core.HolderLookup;

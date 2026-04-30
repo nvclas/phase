@@ -4,7 +4,6 @@ import de.nvclas.phase.Phase;
 import de.nvclas.phase.blocks.PulsingGrassBlock;
 import lombok.experimental.UtilityClass;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -31,6 +30,7 @@ public class PhaseBlocks {
                     .sound(PhaseSounds.FRACTURED_STONE)
                     .instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 2)
                     .strength(10.0F, 500.0F)));
 
     public static final DeferredBlock<Block> PULSING_GRASS = register("pulsing_grass", () -> new PulsingGrassBlock(
@@ -39,6 +39,7 @@ public class PhaseBlocks {
                     .sound(PhaseSounds.PULSING_GRASS)
                     .randomTicks()
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 2)
                     .strength(1.2F)));
 
     public static final DeferredBlock<Block> PULSING_DIRT = register("pulsing_dirt", () -> new Block(

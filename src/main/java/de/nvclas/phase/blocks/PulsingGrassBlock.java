@@ -51,18 +51,16 @@ public class PulsingGrassBlock extends Block {
             level.setBlockAndUpdate(pos, PhaseBlocks.PULSING_DIRT.get().defaultBlockState());
             return;
         }
-        if (!level.isAreaLoaded(pos, 3)) {
+        if (!level.isAreaLoaded(pos, 3) || level.getMaxLocalRawBrightness(pos.above()) >= 9) {
             return;
         }
-        if (level.getMaxLocalRawBrightness(pos.above()) < 9) {
-            BlockState blockstate = this.defaultBlockState();
+        BlockState blockstate = this.defaultBlockState();
 
-            for (int i = 0; i < 4; i++) {
-                BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                if (level.getBlockState(blockpos).is(PhaseBlocks.PULSING_DIRT) && canPropagate(blockstate, level,
-                        blockpos)) {
-                    level.setBlockAndUpdate(blockpos, blockstate);
-                }
+        for (int i = 0; i < 4; i++) {
+            BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
+            if (level.getBlockState(blockpos).is(PhaseBlocks.PULSING_DIRT) && canPropagate(blockstate, level,
+                    blockpos)) {
+                level.setBlockAndUpdate(blockpos, blockstate);
             }
         }
     }

@@ -1,8 +1,8 @@
-package de.nvclas.phase.generators;
+package de.nvclas.phase.datagen;
 
-import de.nvclas.phase.generators.assets.PhaseBlockStateProvider;
-import de.nvclas.phase.generators.assets.PhaseEnLanguageProvider;
-import de.nvclas.phase.generators.assets.PhaseItemModelProvider;
+import de.nvclas.phase.datagen.assets.PhaseBlockStateProvider;
+import de.nvclas.phase.datagen.assets.PhaseEnLanguageProvider;
+import de.nvclas.phase.datagen.assets.PhaseItemModelProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
