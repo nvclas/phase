@@ -1,6 +1,5 @@
 package de.nvclas.phase.datagen;
 
-import de.nvclas.phase.datagen.assets.PhaseBlockModelProvider;
 import de.nvclas.phase.datagen.assets.PhaseBlockStateProvider;
 import de.nvclas.phase.datagen.assets.PhaseEnLanguageProvider;
 import de.nvclas.phase.datagen.assets.PhaseItemModelProvider;
@@ -20,6 +19,5 @@ public class PhaseAssetsGenerator {
         generator.addProvider(includeClient, new PhaseEnLanguageProvider(packOutput));
         generator.addProvider(includeClient, new PhaseItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(includeClient, new PhaseBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(includeClient, new PhaseBlockModelProvider(packOutput, existingFileHelper));
     }
 }

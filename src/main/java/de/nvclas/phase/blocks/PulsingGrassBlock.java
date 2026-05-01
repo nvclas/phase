@@ -1,4 +1,4 @@
-package de.nvclas.phase.content.blocks;
+package de.nvclas.phase.blocks;
 
 import de.nvclas.phase.registries.PhaseBlocks;
 import net.minecraft.core.BlockPos;

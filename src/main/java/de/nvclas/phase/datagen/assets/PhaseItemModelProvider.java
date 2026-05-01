@@ -15,6 +15,5 @@ public class PhaseItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(PhaseItems.UNSTABLE_PHASE.get());
-        basicItem(PhaseItems.LIQUID_TIME_BUCKET.get());
     }
 }
