@@ -1,10 +1,13 @@
 package de.nvclas.phase;
 
 import com.mojang.logging.LogUtils;
+import de.nvclas.phase.client.listeners.FMLClientSetupListener;
+import de.nvclas.phase.client.listeners.RegisterClientExtensionsListener;
 import de.nvclas.phase.datagen.PhaseAssetsGenerator;
 import de.nvclas.phase.datagen.PhaseDataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
+import de.nvclas.phase.registries.PhaseFluidRegistries;
 import de.nvclas.phase.registries.PhaseItems;
 import de.nvclas.phase.registries.PhaseSounds;
 import net.neoforged.bus.api.IEventBus;
@@ -20,14 +23,17 @@ public class Phase {
 
     public Phase(IEventBus modEventBus, ModContainer modContainer) {
         // Content
-        PhaseItems.ITEMS.register(modEventBus);
-        PhaseBlocks.BLOCKS.register(modEventBus);
-        PhaseSounds.SOUND_EVENTS.register(modEventBus);
-        PhaseCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        PhaseItems.register(modEventBus);
+        PhaseBlocks.register(modEventBus);
+        PhaseFluidRegistries.register(modEventBus);
+        PhaseSounds.register(modEventBus);
+        PhaseCreativeTabs.register(modEventBus);
 
-        // Liseners
-        modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
+        // Listeners
         modEventBus.addListener(this::generateData);
+        modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
+        modEventBus.addListener(RegisterClientExtensionsListener::onRegisterClientExtensions);
+        modEventBus.addListener(FMLClientSetupListener::onFMLClientSetup);
     }
 
     private void generateData(GatherDataEvent event) {

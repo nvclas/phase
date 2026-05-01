@@ -1,12 +1,16 @@
 package de.nvclas.phase.registries;
 
 import de.nvclas.phase.Phase;
-import de.nvclas.phase.blocks.PulsingGrassBlock;
+import de.nvclas.phase.content.blocks.PulsingGrassBlock;
 import lombok.experimental.UtilityClass;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -24,8 +28,8 @@ public class PhaseBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(8.0F, 500.0F)));
 
-    public static final DeferredBlock<Block> FRACTURED_COBBLESTONE = register("fractured_cobblestone",
-            () -> new Block(BlockBehaviour.Properties.of()
+    public static final DeferredBlock<Block> FRACTURED_COBBLESTONE = register("fractured_cobblestone", () -> new Block(
+            BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .sound(PhaseSounds.FRACTURED_STONE)
                     .instrument(NoteBlockInstrument.BASEDRUM)
@@ -50,9 +54,24 @@ public class PhaseBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(1.0F)));
 
+    public static final DeferredBlock<LiquidBlock> LIQUID_TIME_BLOCK = BLOCKS.register("liquid_time_block",
+            () -> new LiquidBlock(PhaseFluidRegistries.PhaseFluids.LIQUID_TIME.get(), BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.NONE)
+                    .replaceable()
+                    .noCollission()
+                    .strength(100.0F)
+                    .pushReaction(PushReaction.DESTROY)
+                    .noLootTable()
+                    .liquid()
+                    .sound(SoundType.EMPTY)));
+
     private static <T extends Block> DeferredBlock<T> register(String name, Supplier<T> properties) {
         DeferredBlock<T> block = BLOCKS.register(name, properties);
         PhaseItems.ITEMS.registerSimpleBlockItem(block);
         return block;
+    }
+
+    public static void register(IEventBus modEventBus) {
+        BLOCKS.register(modEventBus);
     }
 }

@@ -39,6 +39,8 @@ public class PhaseBlockStateProvider extends BlockStateProvider {
 
         cubeAllBlock(PhaseBlocks.PULSING_DIRT.get(),
                 BlockModelOptions.create().rotations(NO_ROTATION, FULL_ROTATION));
+
+        simpleBlock(PhaseBlocks.LIQUID_TIME_BLOCK.get(), models().getExistingFile(mcLoc("water")));
     }
 
     private ConfiguredModel @NotNull [] getConfiguredModels(List<ModelFile> models, int[] xRotations, int[] yRotations,

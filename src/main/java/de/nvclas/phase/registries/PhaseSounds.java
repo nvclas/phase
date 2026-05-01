@@ -5,12 +5,13 @@ import lombok.experimental.UtilityClass;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @UtilityClass
 public class PhaseSounds {
-    public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(
+    private static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(
             BuiltInRegistries.SOUND_EVENT, Phase.MODID);
 
     public static final DeferredSoundType FRACTURED_STONE = new DeferredSoundType(1.0f, 0.8f,
@@ -25,5 +26,9 @@ public class PhaseSounds {
             () -> SoundEvents.GRAVEL_BREAK, () -> SoundEvents.GRAVEL_STEP, () -> SoundEvents.GRAVEL_PLACE,
             () -> SoundEvents.GRAVEL_HIT, () -> SoundEvents.GRAVEL_FALL);
 
+
+    public static void register(IEventBus modEventBus) {
+        SOUND_EVENTS.register(modEventBus);
+    }
 
 }
