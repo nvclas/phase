@@ -29,6 +29,6 @@ public class PhaseEnLanguageProvider extends LanguageProvider {
         addBlock(PhaseLiquidBlocks.LIQUID_TIME, "Liquid Time");
 
         // Creative Tab
-        add("itemGroup.phase", "Phase");
+        add("itemGroup." + Phase.MODID, "Phase");
     }
 }
