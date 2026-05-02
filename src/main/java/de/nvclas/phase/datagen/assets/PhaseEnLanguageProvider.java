@@ -1,6 +1,9 @@
 package de.nvclas.phase.datagen.assets;
 
 import de.nvclas.phase.Phase;
+import de.nvclas.phase.registries.PhaseBlocks;
+import de.nvclas.phase.registries.PhaseItems;
+import de.nvclas.phase.registries.fluids.PhaseLiquidBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -13,13 +16,17 @@ public class PhaseEnLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // Items
-        add("item.phase.unstable_phase", "Unstable Phase");
+        addItem(PhaseItems.UNSTABLE_PHASE, "Unstable Phase");
+        addItem(PhaseItems.LIQUID_TIME_BUCKET, "Liquid Time Bucket");
 
         // Blocks
-        add("block.phase.fractured_stone", "Fractured Stone");
-        add("block.phase.fractured_cobblestone", "Fractured Cobblestone");
-        add("block.phase.pulsing_grass", "Pulsing Grass");
-        add("block.phase.pulsing_dirt", "Pulsing Dirt");
+        addBlock(PhaseBlocks.FRACTURED_STONE, "Fractured Stone");
+        addBlock(PhaseBlocks.FRACTURED_COBBLESTONE, "Fractured Cobblestone");
+        addBlock(PhaseBlocks.PULSING_GRASS, "Pulsing Grass");
+        addBlock(PhaseBlocks.PULSING_DIRT, "Pulsing Dirt");
+
+        // Liquids
+        addBlock(PhaseLiquidBlocks.LIQUID_TIME, "Liquid Time");
 
         // Creative Tab
         add("itemGroup.phase", "Phase");

@@ -5,6 +5,7 @@ import lombok.experimental.UtilityClass;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -26,4 +27,7 @@ public class PhaseSounds {
             () -> SoundEvents.GRAVEL_HIT, () -> SoundEvents.GRAVEL_FALL);
 
 
+    public static void register(IEventBus modEventBus) {
+        SOUND_EVENTS.register(modEventBus);
+    }
 }

@@ -1,15 +1,20 @@
 package de.nvclas.phase;
 
 import com.mojang.logging.LogUtils;
+import de.nvclas.phase.client.listeners.ClientEventListeners;
 import de.nvclas.phase.datagen.PhaseAssetsGenerator;
 import de.nvclas.phase.datagen.PhaseDataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
 import de.nvclas.phase.registries.PhaseCreativeTabs;
+import de.nvclas.phase.registries.fluids.PhaseFluidTypes;
+import de.nvclas.phase.registries.fluids.PhaseFluids;
 import de.nvclas.phase.registries.PhaseItems;
 import de.nvclas.phase.registries.PhaseSounds;
+import de.nvclas.phase.registries.fluids.PhaseLiquidBlocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
@@ -20,14 +25,22 @@ public class Phase {
 
     public Phase(IEventBus modEventBus, ModContainer modContainer) {
         // Content
-        PhaseItems.ITEMS.register(modEventBus);
-        PhaseBlocks.BLOCKS.register(modEventBus);
-        PhaseSounds.SOUND_EVENTS.register(modEventBus);
-        PhaseCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        PhaseItems.register(modEventBus);
+        PhaseBlocks.register(modEventBus);
+        PhaseFluids.register(modEventBus);
+        PhaseFluidTypes.register(modEventBus);
+        PhaseLiquidBlocks.register(modEventBus);
+        PhaseSounds.register(modEventBus);
+        PhaseCreativeTabs.register(modEventBus);
 
         // Liseners
-        modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
         modEventBus.addListener(this::generateData);
+        modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
+
+        if (FMLEnvironment.dist.isClient()) {
+            modEventBus.addListener(ClientEventListeners::onRegisterClientExtensions);
+            modEventBus.addListener(ClientEventListeners::onClientSetup);
+        }
     }
 
     private void generateData(GatherDataEvent event) {

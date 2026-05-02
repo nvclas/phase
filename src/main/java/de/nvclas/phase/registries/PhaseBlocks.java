@@ -1,12 +1,13 @@
 package de.nvclas.phase.registries;
 
 import de.nvclas.phase.Phase;
-import de.nvclas.phase.blocks.PulsingGrassBlock;
+import de.nvclas.phase.content.blocks.PulsingGrassBlock;
 import lombok.experimental.UtilityClass;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -54,5 +55,9 @@ public class PhaseBlocks {
         DeferredBlock<T> block = BLOCKS.register(name, properties);
         PhaseItems.ITEMS.registerSimpleBlockItem(block);
         return block;
+    }
+
+    public static void register(IEventBus modEventBus) {
+        BLOCKS.register(modEventBus);
     }
 }

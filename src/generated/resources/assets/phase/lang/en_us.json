@@ -1,8 +1,10 @@
 {
   "block.phase.fractured_cobblestone": "Fractured Cobblestone",
   "block.phase.fractured_stone": "Fractured Stone",
+  "block.phase.liquid_time": "Liquid Time",
   "block.phase.pulsing_dirt": "Pulsing Dirt",
   "block.phase.pulsing_grass": "Pulsing Grass",
+  "item.phase.liquid_time_bucket": "Liquid Time Bucket",
   "item.phase.unstable_phase": "Unstable Phase",
   "itemGroup.phase": "Phase"
 }
