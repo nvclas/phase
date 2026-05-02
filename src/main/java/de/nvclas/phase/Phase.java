@@ -15,6 +15,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
@@ -40,6 +41,7 @@ public class Phase {
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(ClientEventListeners::onRegisterClientExtensions);
             modEventBus.addListener(ClientEventListeners::onClientSetup);
+            NeoForge.EVENT_BUS.addListener(ClientEventListeners::onClientTick);
         }
     }
 

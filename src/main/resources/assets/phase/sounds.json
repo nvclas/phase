@@ -1,0 +1,10 @@
+{
+  "ambient.liquid_time_ambient": {
+    "sounds": [
+      {
+        "name": "phase:ambient/liquid_time_ambient",
+        "stream": true
+      }
+    ]
+  }
+}

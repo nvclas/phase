@@ -3,10 +3,12 @@ package de.nvclas.phase.registries;
 import de.nvclas.phase.Phase;
 import lombok.experimental.UtilityClass;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @UtilityClass
@@ -26,6 +28,10 @@ public class PhaseSounds {
             () -> SoundEvents.GRAVEL_BREAK, () -> SoundEvents.GRAVEL_STEP, () -> SoundEvents.GRAVEL_PLACE,
             () -> SoundEvents.GRAVEL_HIT, () -> SoundEvents.GRAVEL_FALL);
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> LIQUID_TIME_AMBIENT = SOUND_EVENTS.register(
+            "ambient.liquid_time_ambient",
+            () -> SoundEvent.createVariableRangeEvent(
+                    ResourceLocation.fromNamespaceAndPath(Phase.MODID, "ambient.liquid_time_ambient")));
 
     public static void register(IEventBus modEventBus) {
         SOUND_EVENTS.register(modEventBus);
