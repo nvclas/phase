@@ -59,7 +59,8 @@ public class ClientEventListeners {
             }
 
             @Override
-            public @NotNull Vector3f modifyFogColor(@NotNull Camera camera, float partialTick, @NotNull ClientLevel level, int renderDistance,
+            public @NotNull Vector3f modifyFogColor(@NotNull Camera camera, float partialTick,
+                    @NotNull ClientLevel level, int renderDistance,
                     float darkenWorldAmount, @NotNull Vector3f fluidFogColor) {
                 return fogColor;
             }

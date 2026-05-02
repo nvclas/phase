@@ -1,8 +1,8 @@
 package de.nvclas.phase.content.fluids;
 
+import de.nvclas.phase.registries.PhaseItems;
 import de.nvclas.phase.registries.fluids.PhaseFluidTypes;
 import de.nvclas.phase.registries.fluids.PhaseFluids;
-import de.nvclas.phase.registries.PhaseItems;
 import de.nvclas.phase.registries.fluids.PhaseLiquidBlocks;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 

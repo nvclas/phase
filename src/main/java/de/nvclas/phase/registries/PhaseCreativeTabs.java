@@ -15,7 +15,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class PhaseCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(
             Registries.CREATIVE_MODE_TAB, Phase.MODID);
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> PHASE = CREATIVE_MODE_TABS.register(Phase.MODID,
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> PHASE = CREATIVE_MODE_TABS.register(
+            Phase.MODID,
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + Phase.MODID))
                     .icon(() -> new ItemStack(PhaseItems.UNSTABLE_PHASE.get()))
