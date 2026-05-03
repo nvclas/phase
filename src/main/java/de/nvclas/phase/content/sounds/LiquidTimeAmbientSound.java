@@ -2,16 +2,18 @@ package de.nvclas.phase.content.sounds;
 
 import de.nvclas.phase.registries.PhaseSounds;
 import de.nvclas.phase.registries.fluids.PhaseFluidTypes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 public class LiquidTimeAmbientSound extends AbstractTickableSoundInstance {
-    private static final float MAX_VOLUME = 0.3f;
+    private static final float MAX_VOLUME = 0.1f;
     private static final int MAX_FADE = 40;
-
+    private static LiquidTimeAmbientSound liquidTimeAmbientSound;
     private final LocalPlayer player;
     private int fade;
 
@@ -22,6 +24,27 @@ public class LiquidTimeAmbientSound extends AbstractTickableSoundInstance {
         this.delay = 0;
         this.volume = 0.00000000001f;
         this.pitch = 1.0f;
+    }
+
+    public static void onClientTick(ClientTickEvent.Post event) {
+        Minecraft minecraft = Minecraft.getInstance();
+
+        if (minecraft.player == null) {
+            if (liquidTimeAmbientSound != null) {
+                minecraft.getSoundManager().stop(liquidTimeAmbientSound);
+                liquidTimeAmbientSound = null;
+            }
+            return;
+        }
+
+        if (liquidTimeAmbientSound != null && liquidTimeAmbientSound.isStopped()) {
+            liquidTimeAmbientSound = null;
+        }
+
+        if (minecraft.player.isEyeInFluidType(PhaseFluidTypes.LIQUID_TIME.get()) && liquidTimeAmbientSound == null) {
+            liquidTimeAmbientSound = new LiquidTimeAmbientSound(minecraft.player);
+            minecraft.getSoundManager().play(liquidTimeAmbientSound);
+        }
     }
 
     @Override

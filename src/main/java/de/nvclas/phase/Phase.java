@@ -1,7 +1,10 @@
 package de.nvclas.phase;
 
 import com.mojang.logging.LogUtils;
+import de.nvclas.phase.client.fluid.FluidVisionEffectManager;
 import de.nvclas.phase.client.listeners.ClientEventListeners;
+import de.nvclas.phase.content.fluids.LiquidTimeFluid;
+import de.nvclas.phase.content.sounds.LiquidTimeAmbientSound;
 import de.nvclas.phase.datagen.PhaseAssetsGenerator;
 import de.nvclas.phase.datagen.PhaseDataGenerator;
 import de.nvclas.phase.registries.PhaseBlocks;
@@ -34,14 +37,20 @@ public class Phase {
         PhaseSounds.register(modEventBus);
         PhaseCreativeTabs.register(modEventBus);
 
-        // Liseners
+        // Listeners
         modEventBus.addListener(this::generateData);
         modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
+        NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onCropGrow);
+        NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onBreakSpeed);
+        //NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onEntityTick);
 
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(ClientEventListeners::onRegisterClientExtensions);
             modEventBus.addListener(ClientEventListeners::onClientSetup);
-            NeoForge.EVENT_BUS.addListener(ClientEventListeners::onClientTick);
+            NeoForge.EVENT_BUS.addListener(FluidVisionEffectManager::onComputeFov);
+            NeoForge.EVENT_BUS.addListener(FluidVisionEffectManager::onRenderOverlay);
+            NeoForge.EVENT_BUS.addListener(FluidVisionEffectManager::onClientTick);
+            NeoForge.EVENT_BUS.addListener(LiquidTimeAmbientSound::onClientTick);
         }
     }
 
