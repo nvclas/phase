@@ -6,12 +6,20 @@ import de.nvclas.phase.registries.fluids.PhaseFluids;
 import de.nvclas.phase.registries.fluids.PhaseLiquidBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.block.CropGrowEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 public abstract class LiquidTimeFluid extends BaseFlowingFluid {
@@ -26,6 +34,11 @@ public abstract class LiquidTimeFluid extends BaseFlowingFluid {
 
     private static final float MINING_SPEED_MULTIPLIER = 2.0f;
     private static final float MOVEMENT_SPEED_MULTIPLIER = 2.0f;
+    private static final ResourceLocation LIQUID_TIME_MOVEMENT_SPEED_ID =
+            ResourceLocation.fromNamespaceAndPath("phase", "liquid_time_movement_speed");
+    private static final ResourceLocation LIQUID_TIME_SWIM_SPEED_ID =
+            ResourceLocation.fromNamespaceAndPath("phase", "liquid_time_swim_speed");
+
 
     protected LiquidTimeFluid() {
         super(PROPERTIES);
@@ -37,8 +50,42 @@ public abstract class LiquidTimeFluid extends BaseFlowingFluid {
         }
     }
 
-    public static void onEntityTick(/*TODO: Find out fitting event*/) {
-        /*TODO: Increase movement speed of entities in liquid time*/
+    public static void onEntityTick(EntityTickEvent.Post event) {
+        Entity entity = event.getEntity();
+
+        if (!(entity instanceof LivingEntity living)) {
+            return;
+        }
+
+        boolean inLiquidTime = living.isEyeInFluidType(PhaseFluidTypes.LIQUID_TIME.get());
+
+        applySpeedModifier(
+                living.getAttribute(Attributes.MOVEMENT_SPEED),
+                LIQUID_TIME_MOVEMENT_SPEED_ID,
+                inLiquidTime
+        );
+
+        applySpeedModifier(
+                living.getAttribute(NeoForgeMod.SWIM_SPEED),
+                LIQUID_TIME_SWIM_SPEED_ID,
+                inLiquidTime
+        );
+    }
+
+    private static void applySpeedModifier(AttributeInstance attribute, ResourceLocation id, boolean shouldApply) {
+        if (attribute == null) {
+            return;
+        }
+
+        attribute.removeModifier(id);
+
+        if (shouldApply) {
+            attribute.addTransientModifier(new AttributeModifier(
+                    id,
+                    MOVEMENT_SPEED_MULTIPLIER - 1.0D,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+            ));
+        }
     }
 
     public static void onCropGrow(CropGrowEvent.Post event) {

@@ -25,13 +25,14 @@ public class FluidVisionEffectManager {
             int currentTicks = ticks.getOrDefault(effect, 0);
             previousTicks.put(effect, currentTicks);
 
-            if (minecraft.player == null) {
+            if (minecraft.player == null || minecraft.level == null) {
                 ticks.put(effect, 0);
                 previousTicks.put(effect, 0);
                 continue;
             }
 
-            if (effect.isEyeIn(minecraft.player)) {
+            Camera camera = minecraft.gameRenderer.getMainCamera();
+            if (effect.isCameraIn(camera, minecraft.level)) {
                 ticks.put(effect, Math.min(currentTicks + 1, effect.totalFogTicks()));
             } else {
                 ticks.put(effect, 0);
@@ -80,9 +81,15 @@ public class FluidVisionEffectManager {
     }
 
     private static Optional<FluidVisionEffect> findEffect(Camera camera) {
+        Minecraft minecraft = Minecraft.getInstance();
+
+        if (minecraft.level == null) {
+            return Optional.empty();
+        }
+
         return ClientFluidVisuals.effects()
                 .stream()
-                .filter(effect -> effect.isEyeIn(camera.getEntity()))
+                .filter(effect -> effect.isCameraIn(camera, minecraft.level))
                 .findFirst();
     }
 }

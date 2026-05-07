@@ -42,7 +42,7 @@ public class Phase {
         modEventBus.addListener(PhaseCreativeTabs::addToCreativeTabs);
         NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onCropGrow);
         NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onBreakSpeed);
-        //NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onEntityTick);
+        NeoForge.EVENT_BUS.addListener(LiquidTimeFluid::onEntityTick);
 
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(ClientEventListeners::onRegisterClientExtensions);
