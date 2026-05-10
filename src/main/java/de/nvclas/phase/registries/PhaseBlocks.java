@@ -47,7 +47,6 @@ public class PhaseBlocks {
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_GRAY)
                     .sound(PhaseSounds.PULSING_DIRT)
-                    .randomTicks()
                     .requiresCorrectToolForDrops()
                     .strength(1.0F)));
 
