@@ -2,6 +2,7 @@ package de.nvclas.phase.datagen.assets;
 
 import de.nvclas.phase.Phase;
 import de.nvclas.phase.registries.PhaseBlocks;
+import de.nvclas.phase.registries.fluids.PhaseLiquidBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -39,6 +40,8 @@ public class PhaseBlockStateProvider extends BlockStateProvider {
 
         cubeAllBlock(PhaseBlocks.PULSING_DIRT.get(),
                 BlockModelOptions.create().rotations(NO_ROTATION, FULL_ROTATION));
+
+        fluidBlock(PhaseLiquidBlocks.LIQUID_TIME.get());
     }
 
     private ConfiguredModel @NotNull [] getConfiguredModels(List<ModelFile> models, int[] xRotations, int[] yRotations,
@@ -111,6 +114,13 @@ public class PhaseBlockStateProvider extends BlockStateProvider {
         }
 
         simpleBlockItem(block, itemModel);
+    }
+
+    private void fluidBlock(Block block) {
+        ModelFile model = models().getExistingFile(mcLoc("block/water"));
+        getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(model)
+                .build());
     }
 
     private ModelFile cubeMirroredAll(Block block) {

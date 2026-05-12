@@ -4,5 +4,7 @@
   "block.phase.fractured_stone": "Fragmentierter Stein",
   "block.phase.pulsing_dirt": "Pulsierende Erde",
   "block.phase.pulsing_grass": "Pulsierendes Gras",
-  "itemGroup.phase": "Phase"
+  "itemGroup.phase": "Phase",
+  "block.phase.liquid_time": "Flüssige Zeit",
+  "item.phase.liquid_time_bucket": "Flüssige-Zeit-Eimer"
 }
